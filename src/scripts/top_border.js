@@ -1,9 +1,9 @@
 class TopBorder {
     constructor(ctx) {
         this.ctx = ctx
-        this.x = 250
+        this.x = ctx.canvas.width / 2
         this.y = 250
-        this.radX = 250
+        this.radX = 300
         this.radY = 200
     }
 
@@ -17,10 +17,10 @@ class TopBorder {
             if (dist >= 0.98 && dist <= 1.02) {
                 if (ball.x < this.x) {
                     ball.updatePos(ball.x, ball.y + ball.rad / 2)
-                    ball.updateVec(ball.vx + 0.85, ball.vy)  
+                    ball.updateVec(ball.vx + 1, ball.vy)  
                 } else {
                     ball.updatePos(ball.x, ball.y + ball.rad / 2)
-                    ball.updateVec(ball.vx - 0.85, ball.vy * 0.9)
+                    ball.updateVec(ball.vx - 1, ball.vy * 0.9)
                 }
             }
         }
@@ -32,7 +32,7 @@ class TopBorder {
         ctx.moveTo(0, 0)
         ctx.lineTo(0, this.y)
         ctx.ellipse(this.x, this.y, this.radX, this.radY, 0, Math.PI, 0);
-        ctx.lineTo(500, 0)
+        ctx.lineTo(600, 0)
         ctx.closePath()
         ctx.fillStyle = 'black'
         ctx.fill()

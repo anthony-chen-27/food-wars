@@ -6,13 +6,13 @@ class Game {
   constructor(props) {
     this.launched = false
     this.canvas = document.createElement("canvas");
-    this.canvas.width = 500;
+    this.canvas.width = 600;
     this.canvas.height = 900;
     this.lastTime = 0
     this.ctx = this.canvas.getContext("2d");
     this.TopBorder = new TopBorder(this.ctx)
     this.TopBorder.draw()
-    this.ball = new Ball(this.ctx, 490, 890, 0, -10)
+    this.ball = new Ball(this.ctx, 580, 890, 0, 0)
     // this.border = new Border(this.ctx)
     this.animate = this.animate.bind(this)
     window.requestAnimationFrame(this.animate)
