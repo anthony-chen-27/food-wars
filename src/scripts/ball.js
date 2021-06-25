@@ -34,7 +34,6 @@ class Ball {
             return true
         }
         if (Math.abs(this.vy) < 2) {
-            console.log('low')
             this.vy *= 2
         }
         if (Math.abs(this.vx) < 2) {

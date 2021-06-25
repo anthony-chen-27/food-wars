@@ -5,11 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <title>Food wars</title>
   </head>
 
   <body>
     <script src="./dist/main.js"></script>
-    <div id='score'></div>
+    <div class='main-content'>
+      <div class='logo'>
+        <img src="https://i.redd.it/ydbylcr6ru711.png">
+        <span>Food Wars</span>
+      </div>
+      <div id='game'>
+        <div class='game-header'>
+          <div>
+            <span>Score: </span>
+            <div id='score'></div>
+          </div>
+
+          <div>
+            <span>Lives left:</span>
+            <div id='life'></div>
+          </div>
+        </div>
+      </div>
+      <div class='rules'>
+        <span>Instructions</span>
+        <ul>
+          <li>Goal of the game is to accumulate the highest score</li>
+          <li>Move platform on bottom with mouse</li>
+          <li>You get score by hitting any of the objects on screen</li>
+          <li>Ball can travel through the portals but portal will be placed on a 10 second cooldown after using</li>
+          <li>You have 3 lives</li>
+        </ul>
+      </div>
+    </div>
+    <div class='page-footer'>
+      <a href="https://github.com/simpleistruth/food-wars"><img src="https://image.flaticon.com/icons/png/512/25/25231.png"></a>
+      <a href="https://www.linkedin.com/in/anthony-c-b8250b126/"><img src="https://lh3.googleusercontent.com/proxy/HKAnNu4Nb_6JcV1xj9TL1PtNCZ3Z5_nOTQhRKU6Q8oA7gzZMdGbRziU7aiFrXHLkQvp5jIb60wrgkzysm-TmpTiMC3VY4xOaEWJTnmEOOlhsf1QHT0iw1ZJRcA"></a>
+      <a href="https://angel.co/u/anthony-chen-18"><img src="https://cdn1.iconfinder.com/data/icons/logos-and-brands-3/512/20_Angellist_logo_logos-512.png"></a>
+    </div>
   </body>
 </html>

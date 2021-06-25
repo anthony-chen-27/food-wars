@@ -1,10 +1,89 @@
 body {
   margin: 0;
+  background-color: #f5d4b7;
+  max-height: 1440px;
 }
-canvas {
+
+.main-content {
+  font-family: 'Bebas Neue', cursive; 
   position: relative;
-  top: 50px;
+  top: 20px;
   display: flex;
-  margin: 0 auto;
-  outline: 1px solid black;
+  justify-content: space-evenly;
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 300px;
+      height: 180px;
+    }
+    span {
+      font-size: 100px;
+      position: relative;
+      top: -30px;
+    }
+  }
+
+  .rules {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    span {
+      font-size: 24px;
+    }
+
+    ul {
+      padding: 0px;
+      font-size: 18px;
+      list-style-type: armenian;
+    }
+  }
+}
+
+
+#game {
+  display: flex;
+  flex-direction: column;
+}
+
+canvas {
+  border: 10px solid transparent;
+  box-sizing: border-box;
+  border-image: url('https://i.pinimg.com/736x/1b/f3/46/1bf3463c3ecd0911b891aecb7c11a91a.jpg') 30 round;
+}
+
+.game-header {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+
+  div {
+    display: flex;
+    span {
+      margin-right: 5px;
+    }
+  }
+}
+
+.page-footer {
+  position: relative;
+  margin-top: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    margin: 0px 15px;
+  }
+  img {
+    width: 24px;
+    height: 24px;
+  }
 }

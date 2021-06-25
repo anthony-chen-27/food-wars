@@ -1,27 +1,39 @@
 import Ball from './ball'
 import Control from './control'
 import Normaldist from './normaldist'
+import Portal from './portal'
+import Platform from './platform'
 
 class Game {
   constructor(props) {
-    this.launched = false
     this.canvas = document.createElement("canvas");
     this.canvas.width = 600;
     this.canvas.height = 900;
     this.mouseX = 50;
-    this.score = 0
     this.ctx = this.canvas.getContext("2d");
     this.animate = this.animate.bind(this)
     this.canvas.addEventListener("mousemove", (e) => this.setMousePosition(e), false);
     
-    this.loadImages([['subway', 'https://img.favpng.com/8/24/20/submarine-sandwich-subway-5-footlong-promotion-restaurant-png-favpng-r8PKFVtUxz2uT110KJVCVfE6C.jpg']], () => window.requestAnimationFrame(this.animate))
-    this.init()
+    this.loadImages([
+      ['subway', 'https://i.imgur.com/sM2VcXA.png'],
+      ['portal', 'https://lh3.googleusercontent.com/proxy/bTXLqxbMcvd9mdyyIBWFOPkUtW6zt2AEKF_LI5YwHYZNFxh1z1pqoqxx2f-zVSQhwknxUPdGG-wbFJAfLg5x737zBMO8fJD9RK_7yetLqq2lIzoeyw'],
+      ['portal1', 'https://lh3.googleusercontent.com/proxy/tBnt4T0eQj2ktAZpqeQ1sP5t5Cj518DQnbplslTQkHjXLCnKZ1gRrVGtdmruYuEGTk7fWQxrWTkhOQqlh1gXVogANO7S2ACQeNkWoNMeM6TaZpZGln-KTLBkYn_qejY3j4rBew'],
+      ['mcd', 'http://assets.stickpng.com/images/5882482de81acb96424ffaac.png'],
+      ['kfc', 'https://pngimg.com/uploads/kfc_food/kfc_food_PNG30.png'],
+      ['pizza', 'https://lh3.googleusercontent.com/proxy/vuJhaOGdJ11fQZvQy4AIuGtc9Hws5PGS_pkwd4aYPkcyaSN67U0voDp0nZ1YVrhueUZ1VAjGb82LhmCj1N_MtsDpL3hYR4F6kKeXZEzycXQbEzJVVnbeEb6HnK5SIubSozwWuk9fIWBWH98rdGuX4Q'],
+      ['chipotle', 'https://www.vippng.com/png/full/267-2673161_burrito-bowl-burrito-bowl-sisig.png']
+    ], () => window.requestAnimationFrame(this.animate))
+    this.init() 
   }
 
   setMousePosition(e) {
     var rect = e.target.getBoundingClientRect();
     var x = e.clientX - rect.left
-    this.control.changePos(parseInt(x))
+    this.x = parseInt(x)
+    this.control.changePos(this.x)
+    if (!this.launched) {
+      this.ball.updatePos(this.x, this.ball.y)
+    }
   }
 
   loadImages(arr, callback) {
@@ -57,6 +69,7 @@ class Game {
       this.obstacles.forEach((obj) => this.score += obj.checkCollision(this.ball))
     }
     document.getElementById('score').innerHTML = this.score
+    document.getElementById('life').innerHTML = this.life
     this.ball.draw()
     this.control.draw()
     this.obstacles.forEach((obj) => obj.draw())
@@ -65,20 +78,36 @@ class Game {
   }
 
   resetGame() {
-    this.ball = new Ball(this.ctx, 300, 100, 0, 0)
-    this.obstacles = [new Normaldist(this.ctx, 300, 300)]
-    this.score = 0
+    this.createObjects()
     this.launched = false
+    this.life -= 1
+    if (this.life < 0) {
+      this.init()
+    }
+  }
+
+  createObjects() {
+    this.ball = new Ball(this.ctx, 300, 800, 0, 0)
+    this.control = new Control(this.ctx, this.images['subway'])
+    this.obstacles = [
+      new Normaldist(this.ctx, 300, 300, [this.images['mcd'], this.images['kfc'], this.images['pizza']]), 
+      new Portal(this.ctx, 50, 700, 60, 0, [this.images['portal'], this.images['portal1']]), 
+      new Portal(this.ctx, 500, 100, 60, 1, [this.images['portal'], this.images['portal1']]),
+      new Platform(this.ctx, 0, 200, 50, 120, this.images['chipotle']),
+      new Platform(this.ctx, 250, 100, 50, 120, this.images['chipotle']),
+      new Platform(this.ctx, 480, 500, 50, 120, this.images['chipotle'])
+    ]
   }
 
   init() {
-    this.ball = new Ball(this.ctx, 300, 100, 0, 0)
-    this.control = new Control(this.ctx, this.images['subway'])
-    this.obstacles = [new Normaldist(this.ctx, 300, 300)]
+    this.createObjects()
+    this.score = 0
+    this.launched = false
+    this.life = 3
   }
 
   createCanvas() {
-    document.body.append(this.canvas)
+    document.getElementById('game').append(this.canvas)
   }
 
   clearCanvas() {
@@ -89,7 +118,7 @@ class Game {
     if (this.launched) {
       return
     } else {
-      this.ball.updateVec(0, 3)
+      this.ball.updateVec(0, -4.5)
       this.launched = true
     }
   }

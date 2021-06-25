@@ -1,24 +1,31 @@
 import Obstacle from './obstacle'
 
 class normalDist {
-    constructor(ctx, x, y) {
+    constructor(ctx, x, y, img) {
         this.ctx = ctx
         this.x = x
         this.y = y
         this.objects = []
+        this.img = img
         this.init()
     }
 
     init() {
-        this.objects.push(new Obstacle(this.ctx, this.x, this.y - 75, 15))
-        this.objects.push(new Obstacle(this.ctx, this.x - 90, this.y, 15))
-        this.objects.push(new Obstacle(this.ctx, this.x, this.y, 15))
-        this.objects.push(new Obstacle(this.ctx, this.x + 90, this.y, 15))
-        this.objects.push(new Obstacle(this.ctx, this.x - 180, this.y + 75, 15))
-        this.objects.push(new Obstacle(this.ctx, this.x - 90, this.y + 75, 15))
-        this.objects.push(new Obstacle(this.ctx, this.x , this.y + 75, 15))
-        this.objects.push(new Obstacle(this.ctx, this.x + 90, this.y + 75, 15))
-        this.objects.push(new Obstacle(this.ctx, this.x + 180, this.y + 75, 15))
+        //Top
+        const s1 = (Math.random() * 4 + 5) / 10
+        const s2 = (Math.random() * 4 + 5) / 10
+        const s3 = (Math.random() * 4 + 5) / 10
+        this.objects.push(new Obstacle(this.ctx, this.x, this.y - 75, 20, this.img, s1))
+        //Mid
+        this.objects.push(new Obstacle(this.ctx, this.x - 90, this.y, 20, this.img, s2))
+        this.objects.push(new Obstacle(this.ctx, this.x, this.y, 20, this.img, s2))
+        this.objects.push(new Obstacle(this.ctx, this.x + 90, this.y, 20, this.img, s2))
+        //Bottom
+        this.objects.push(new Obstacle(this.ctx, this.x - 180, this.y + 75, 20, this.img, s3))
+        this.objects.push(new Obstacle(this.ctx, this.x - 90, this.y + 75, 20, this.img, s3))
+        this.objects.push(new Obstacle(this.ctx, this.x , this.y + 75, 20, this.img, s3))
+        this.objects.push(new Obstacle(this.ctx, this.x + 90, this.y + 75, 20, this.img, s3))
+        this.objects.push(new Obstacle(this.ctx, this.x + 180, this.y + 75, 20, this.img, s3))
     }
 
     draw() {
