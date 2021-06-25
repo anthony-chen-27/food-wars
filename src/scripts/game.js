@@ -3,6 +3,8 @@ import Control from './control'
 import Normaldist from './normaldist'
 import Portal from './portal'
 import Platform from './platform'
+import Obstacle from './obstacle'
+import King from './king'
 
 class Game {
   constructor(props) {
@@ -21,7 +23,8 @@ class Game {
       ['mcd', 'http://assets.stickpng.com/images/5882482de81acb96424ffaac.png'],
       ['kfc', 'https://pngimg.com/uploads/kfc_food/kfc_food_PNG30.png'],
       ['pizza', 'https://lh3.googleusercontent.com/proxy/vuJhaOGdJ11fQZvQy4AIuGtc9Hws5PGS_pkwd4aYPkcyaSN67U0voDp0nZ1YVrhueUZ1VAjGb82LhmCj1N_MtsDpL3hYR4F6kKeXZEzycXQbEzJVVnbeEb6HnK5SIubSozwWuk9fIWBWH98rdGuX4Q'],
-      ['chipotle', 'https://www.vippng.com/png/full/267-2673161_burrito-bowl-burrito-bowl-sisig.png']
+      ['chipotle', 'https://www.vippng.com/png/full/267-2673161_burrito-bowl-burrito-bowl-sisig.png'],
+      ['king', 'http://assets.stickpng.com/images/5842996fa6515b1e0ad75add.png']
     ], () => window.requestAnimationFrame(this.animate))
     this.init() 
   }
@@ -95,7 +98,7 @@ class Game {
       new Portal(this.ctx, 500, 100, 60, 1, [this.images['portal'], this.images['portal1']]),
       new Platform(this.ctx, 0, 200, 50, 120, this.images['chipotle']),
       new Platform(this.ctx, 250, 100, 50, 120, this.images['chipotle']),
-      new Platform(this.ctx, 480, 500, 50, 120, this.images['chipotle'])
+      new King(this.ctx, 550, 60, 20, this.images['king'])
     ]
   }
 
