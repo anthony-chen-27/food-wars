@@ -20,7 +20,7 @@ class TopBorder {
                     ball.updateVec(ball.vx + 1, ball.vy)  
                 } else {
                     ball.updatePos(ball.x, ball.y + ball.rad / 2)
-                    ball.updateVec(ball.vx - 1, ball.vy * 0.9)
+                    ball.updateVec(ball.vx - 0.5, ball.vy * 0.9)
                 }
             }
         }

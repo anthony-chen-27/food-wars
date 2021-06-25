@@ -16,6 +16,34 @@ class Ball {
         this.ctx.fill()
     }
 
+    outofBounds() {
+        if (this.x < this.rad) {
+            this.vx = Math.abs(this.vx) 
+            this.x = this.rad
+        }
+        if (this.x > this.ctx.canvas.width - this.rad) {
+            this.vx = -Math.abs(this.vx)
+            this.x = this.ctx.canvas.width - this.rad
+        } 
+        if (this.y < 0) {
+            this.vy = Math.abs(this.vy) 
+            this.y = this.rad
+        } 
+        // Out of bounds on bottom
+        if (this.y > this.ctx.canvas.height - this.rad) {
+            return true
+        }
+        if (Math.abs(this.vy) < 2) {
+            console.log('low')
+            this.vy *= 2
+        }
+        if (Math.abs(this.vx) < 2) {
+            this.vx *= 2
+        }
+        return false
+
+    }
+
     updateVec(vx, vy) {
         this.vx = vx
         this.vy = vy
@@ -26,9 +54,7 @@ class Ball {
         this.y = y
     }
 
-    update(timeDelta) {
-        this.vy += 0.05
-
+    update() {
         this.x += this.vx 
         this.y += this.vy
     }
