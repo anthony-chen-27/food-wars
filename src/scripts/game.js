@@ -18,11 +18,11 @@ class Game {
     
     this.loadImages([
       ['subway', 'https://i.imgur.com/sM2VcXA.png'],
-      ['portal', 'https://lh3.googleusercontent.com/proxy/bTXLqxbMcvd9mdyyIBWFOPkUtW6zt2AEKF_LI5YwHYZNFxh1z1pqoqxx2f-zVSQhwknxUPdGG-wbFJAfLg5x737zBMO8fJD9RK_7yetLqq2lIzoeyw'],
-      ['portal1', 'https://lh3.googleusercontent.com/proxy/tBnt4T0eQj2ktAZpqeQ1sP5t5Cj518DQnbplslTQkHjXLCnKZ1gRrVGtdmruYuEGTk7fWQxrWTkhOQqlh1gXVogANO7S2ACQeNkWoNMeM6TaZpZGln-KTLBkYn_qejY3j4rBew'],
+      ['portal', 'https://i.imgur.com/nLSPRwB.png'],
+      ['portal1', 'https://i.imgur.com/0cwZhYo.png'],
       ['mcd', 'http://assets.stickpng.com/images/5882482de81acb96424ffaac.png'],
       ['kfc', 'https://pngimg.com/uploads/kfc_food/kfc_food_PNG30.png'],
-      ['pizza', 'https://lh3.googleusercontent.com/proxy/vuJhaOGdJ11fQZvQy4AIuGtc9Hws5PGS_pkwd4aYPkcyaSN67U0voDp0nZ1YVrhueUZ1VAjGb82LhmCj1N_MtsDpL3hYR4F6kKeXZEzycXQbEzJVVnbeEb6HnK5SIubSozwWuk9fIWBWH98rdGuX4Q'],
+      ['pizza', 'https://i.imgur.com/fDzRkSq.png'],
       ['chipotle', 'https://www.vippng.com/png/full/267-2673161_burrito-bowl-burrito-bowl-sisig.png'],
       ['king', 'http://assets.stickpng.com/images/5842996fa6515b1e0ad75add.png']
     ], () => window.requestAnimationFrame(this.animate))
