@@ -20,11 +20,11 @@ class Game {
       ['subway', 'https://i.imgur.com/sM2VcXA.png'],
       ['portal', 'https://i.imgur.com/nLSPRwB.png'],
       ['portal1', 'https://i.imgur.com/0cwZhYo.png'],
-      ['mcd', 'http://assets.stickpng.com/images/5882482de81acb96424ffaac.png'],
+      ['mcd', 'https://i.imgur.com/MtsjJGt.png'],
       ['kfc', 'https://pngimg.com/uploads/kfc_food/kfc_food_PNG30.png'],
       ['pizza', 'https://i.imgur.com/fDzRkSq.png'],
       ['chipotle', 'https://www.vippng.com/png/full/267-2673161_burrito-bowl-burrito-bowl-sisig.png'],
-      ['king', 'http://assets.stickpng.com/images/5842996fa6515b1e0ad75add.png']
+      ['king', 'https://i.imgur.com/YD9sm31.png']
     ], () => window.requestAnimationFrame(this.animate))
     this.init() 
   }
@@ -84,7 +84,7 @@ class Game {
     this.createObjects()
     this.launched = false
     this.life -= 1
-    if (this.life < 0) {
+    if (this.life == 0) {
       this.init()
     }
   }
