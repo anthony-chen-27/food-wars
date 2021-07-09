@@ -4,7 +4,9 @@ Food wars takes on the classic game Pong with a food twist.
 
 ## Functionality
 ---
-In food wars, the player will be able to
-- [ ] Launch ball to begin game
-- [ ] Physics to handle bounces off of walls and keeps track of when a player has lost
-- [ ] Score system to keep track of a player's score
+![](https://i.imgur.com/ckQR3el.png)
+In the game the player is able to manipulat the bottom platform with mouse movement, with the goal being to achieve as high of a score as possible with the limited lives
+
+### Physics
+Every object rendered on screen has collision detection calculated based on the object's position and velocity and the ball's position and velocity.
+![](https://i.imgur.com/sxZTp4P.png)
