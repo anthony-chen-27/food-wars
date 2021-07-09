@@ -1,4 +1,4 @@
-## Background
+## Food Wars [Live Link](https://simpleistruth.github.io/food-wars/)
 ---
 Food wars takes on the classic game Pong with a food twist.
 
