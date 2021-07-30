@@ -2,6 +2,12 @@
 ---
 Food wars takes on the classic game Pong with a food twist.
 
+## Tech used
+---
+- Javascript
+- HTML/CSS
+- Webpack
+
 ## Functionality
 ---
 ![](https://i.imgur.com/ckQR3el.png)
